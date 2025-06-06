@@ -2,10 +2,11 @@ from flask import Flask, render_template, jsonify, request
 from flask_socketio import SocketIO, emit
 import random
 import math
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'scripture-maze-secret-key'
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", logger=False, engineio_logger=False)
 
 # Constants
 MAZE_WIDTH = 21
@@ -165,4 +166,7 @@ def handle_update_effects():
     emit('game_state', game.get_state(), broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True) 
+    # Production-ready configuration
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('ENVIRONMENT') == 'development'
+    socketio.run(app, host='0.0.0.0', port=port, debug=debug, allow_unsafe_werkzeug=True) 
