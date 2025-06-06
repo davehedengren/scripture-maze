@@ -1,6 +1,6 @@
 # The Strait and Narrow Way
 
-A maze game about finding the strait and narrow path, built with Python and Pygame. Perfect for hosting on Replit!
+A maze game about finding the strait and narrow path, built with Python. Available in both desktop (Pygame) and web (Flask) versions!
 
 ## How to Play
 
@@ -20,23 +20,41 @@ A maze game about finding the strait and narrow path, built with Python and Pyga
 - **White circle**: Player
 - **Hit Points**: Number of times you can hit walls before game over
 
-## Running on Replit
+## Running on Replit (Web Version - Recommended)
 
+### Flask Web Version
 1. Create a new Python Repl on [Replit](https://replit.com)
-2. Copy the contents of `main.py` into your main.py file
-3. Copy the contents of `requirements.txt` into your requirements.txt file
-4. Click the **Run** button - Replit will automatically install pygame and start the game!
+2. Copy the contents of `app.py` into your main.py file
+3. Copy the `templates/` folder and its contents
+4. Copy the contents of `requirements.txt` into your requirements.txt file
+5. Click the **Run** button - Replit will automatically install dependencies and start the web server!
+6. Your game will be available at your Repl's web URL
+
+### Desktop Version (Alternative)
+1. Copy the contents of `main.py` instead of `app.py`
+2. Change deployment type to "Reserved VM (Background Worker)"
+3. This version requires a paid Reserved VM plan
 
 ## Running Locally
 
-If you want to run this locally on your computer:
-
+### Web Version (Flask)
 1. Make sure you have Python 3.6+ installed
-2. Install pygame:
+2. Install dependencies:
+   ```
+   pip install flask flask-socketio python-socketio
+   ```
+3. Run the web server:
+   ```
+   python app.py
+   ```
+4. Open your browser and go to `http://localhost:5000`
+
+### Desktop Version (Pygame)
+1. Install pygame:
    ```
    pip install pygame
    ```
-3. Run the game:
+2. Run the desktop game:
    ```
    python main.py
    ```
@@ -48,21 +66,51 @@ If you want to run this locally on your computer:
 - **Pulsing "BAD CHOICE" flash** for feedback
 - **Multiple game states** (loading, playing, game over)
 - **Spiritual theme** with Bible and Book of Mormon elements
+- **Real-time multiplayer** - multiple people can play the same maze
+- **Mobile-friendly** web interface with touch controls
 
 ## Controls
 
+### Desktop Version
 - **Arrow Keys**: Move player
 - **B Key**: Toggle Bible visibility (reveals red walls)
 - **M Key**: Toggle Book of Mormon visibility (reveals blue walls)
 - **R Key**: Restart game
 - **Any Key**: Start game from loading screen
 
+### Web Version
+- **Arrow Keys** or **On-screen Buttons**: Move player
+- **B Button** or **B Key**: Toggle Bible visibility
+- **M Button** or **M Key**: Toggle Book of Mormon visibility
+- **Restart Button** or **R Key**: Restart game
+- **Start Button** or **Enter/Space**: Start game
+
 ## Technical Details
 
-Built with:
-- Python 3
-- Pygame library
-- Procedural maze generation algorithm
-- State-based game management
+### Web Version (app.py)
+- **Flask** web framework
+- **Flask-SocketIO** for real-time communication
+- **HTML5 Canvas** for game rendering
+- **WebSocket** communication between frontend and backend
+- **Responsive design** with mobile support
 
-Perfect for educational purposes or sharing spiritual-themed games with others! 
+### Desktop Version (main.py)
+- **Python 3**
+- **Pygame** library
+- **Procedural maze generation** algorithm
+- **State-based game management**
+
+## File Structure
+
+```
+scripture-maze/
+├── app.py                 # Flask web version (main file for Replit)
+├── main.py               # Pygame desktop version
+├── templates/
+│   └── index.html        # Web interface
+├── requirements.txt      # Python dependencies
+├── README.md            # This file
+└── maze-bible-bom.py    # Original game file
+```
+
+Perfect for educational purposes, sharing spiritual-themed games, or hosting multiple games on one platform! 
