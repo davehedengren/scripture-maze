@@ -1,6 +1,6 @@
 # The Strait and Narrow Way
 
-A maze game about finding the strait and narrow path, built with Python. Available in both desktop (Pygame) and web (Flask) versions!
+A maze game about finding the strait and narrow path, built with Python. Web-based version perfect for Replit hosting!
 
 ## How to Play
 
@@ -20,24 +20,21 @@ A maze game about finding the strait and narrow path, built with Python. Availab
 - **White circle**: Player
 - **Hit Points**: Number of times you can hit walls before game over
 
-## Running on Replit (Web Version - Recommended)
+## Running on Replit (Recommended)
 
-### Flask Web Version
 1. Create a new Python Repl on [Replit](https://replit.com)
 2. Copy the contents of `app.py` into your main.py file
 3. Copy the `templates/` folder and its contents
 4. Copy the contents of `requirements.txt` into your requirements.txt file
-5. Click the **Run** button - Replit will automatically install dependencies and start the web server!
-6. Your game will be available at your Repl's web URL
+5. Set run command to: `python main.py`
+6. Click the **Run** button - Replit will automatically install dependencies and start the web server!
+7. Your game will be available at your Repl's web URL
 
-### Desktop Version (Alternative)
-1. Copy the contents of `main.py` instead of `app.py`
-2. Change deployment type to "Reserved VM (Background Worker)"
-3. This version requires a paid Reserved VM plan
+**OR** Import directly from GitHub:
+- Click "Import from GitHub" and use: `https://github.com/davehedengren/scripture-maze`
 
 ## Running Locally
 
-### Web Version (Flask)
 1. Make sure you have Python 3.6+ installed
 2. Install dependencies:
    ```
@@ -48,16 +45,6 @@ A maze game about finding the strait and narrow path, built with Python. Availab
    python app.py
    ```
 4. Open your browser and go to `http://localhost:5000`
-
-### Desktop Version (Pygame)
-1. Install pygame:
-   ```
-   pip install pygame
-   ```
-2. Run the desktop game:
-   ```
-   python main.py
-   ```
 
 ## Game Features
 
@@ -71,32 +58,19 @@ A maze game about finding the strait and narrow path, built with Python. Availab
 
 ## Controls
 
-### Desktop Version
-- **Arrow Keys**: Move player
-- **B Key**: Toggle Bible visibility (reveals red walls)
-- **M Key**: Toggle Book of Mormon visibility (reveals blue walls)
-- **R Key**: Restart game
-- **Any Key**: Start game from loading screen
-
-### Web Version
 - **Arrow Keys** or **On-screen Buttons**: Move player
-- **B Button** or **B Key**: Toggle Bible visibility
-- **M Button** or **M Key**: Toggle Book of Mormon visibility
+- **B Button** or **B Key**: Toggle Bible visibility (reveals red walls)
+- **M Button** or **M Key**: Toggle Book of Mormon visibility (reveals blue walls)
 - **Restart Button** or **R Key**: Restart game
 - **Start Button** or **Enter/Space**: Start game
 
 ## Technical Details
 
-### Web Version (app.py)
 - **Flask** web framework
 - **Flask-SocketIO** for real-time communication
 - **HTML5 Canvas** for game rendering
 - **WebSocket** communication between frontend and backend
 - **Responsive design** with mobile support
-
-### Desktop Version (main.py)
-- **Python 3**
-- **Pygame** library
 - **Procedural maze generation** algorithm
 - **State-based game management**
 
@@ -104,13 +78,12 @@ A maze game about finding the strait and narrow path, built with Python. Availab
 
 ```
 scripture-maze/
-├── app.py                 # Flask web version (main file for Replit)
-├── main.py               # Pygame desktop version
+├── app.py                 # Flask web version (main game file)
 ├── templates/
 │   └── index.html        # Web interface
 ├── requirements.txt      # Python dependencies
 ├── README.md            # This file
-└── maze-bible-bom.py    # Original game file
+└── maze-bible-bom.py    # Original desktop version (reference)
 ```
 
 Perfect for educational purposes, sharing spiritual-themed games, or hosting multiple games on one platform! 
